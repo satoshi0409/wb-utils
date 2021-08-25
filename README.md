@@ -2,11 +2,14 @@
 このページでは遺伝研スパコン上に構築したwikibaseへのデータ登録方法について説明します。
 
 Project1では
-- (1-1) 組織情報(institution_master_kakenhi.xml)
-- (1-2) 研究分野情報(review_section_master_kakenhi.xml)
+- (1-1) 組織情報(institution_master_kakenhi.xml)　Q489からQ3248の2760個
+- (1-2) 研究分野情報(review_section_master_kakenhi.xml)　Q2からQ488の481個
 
 Project2では
-- (2) Human disease ontology(doid.json)
+- (2) Human disease ontology(doid.json) Q3255からQ13980までの10724個
+※ 注意点1にあるように、2個分、具体的にはQ5290（doid.jsonの63778行目のサイズエラー）とQ10955(255769行目のサイズエラー)
+が向けているので13980-3254-2=10724個
+※ Q3249からQ3254はdoid.jsonを登録するために自動で登録されるデータなので本データではない。
 
 をそれぞれ登録します。
 登録用スクリプトは上記3データでそれぞれ異なりますが、singularityコンテナをProject1とProject2で分けて
