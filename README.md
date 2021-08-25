@@ -41,6 +41,9 @@ Project2では
 ```
 [local server]$ git clone https://github.com/satoshi0409/wb-utils/
 [local server]$ cd Project1/
+[local server]$ unzip inputs.zip  # githubが25MBまでしかuploadできないためにxml入力をzipにしてあります。
+[local server]$ mv inputs/*.xml  ./
+
 ```
 
 ```
