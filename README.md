@@ -38,7 +38,7 @@ Project2では
 ここではより容易なProject1/Dockerfileからsingularityコンテナを作成してスパコン上から実行する方法を説明します。
 ```
 [local server]$ git clone https://(ユーザー名):(パーソナルアクセストークン)@github.com/ddbj/wb-utils.git
-[local server]$ cd Project1/
+[local server]$ cd wb-utils/Project1/
 [local server]$ unzip inputs.zip  # githubが25MBまでしかuploadできないためにxml入力をzipにしてあります。
 [local server]$ mv inputs/*.xml  ./
 
@@ -95,7 +95,7 @@ script_wdi_xml_review_section.pyのcreate_entity関数
 ここではより容易なNIG＿Project2/Dockerfileからsingularityコンテナを作成してスパコン上から実行する方法を説明します。
 ```
 [local server]$ git clone https://(ユーザー名):(パーソナルアクセストークン)@github.com/ddbj/wb-utils.git
-[local server]$ cd Project2/
+[local server]$ cd wb-utils/Project2/
 [local server]$ docker build -t project2 .
 [local server]$ sudo singularity build project2.sif docker-daemon://project2:latest
 [local server]$ scp -i ~/NIG/.ssh/id_rsa project2.sif [アカウント名]@gw.ddbj.nig.ac.jp:/home/[アカウント名]
@@ -119,10 +119,18 @@ script_wdi_xml_review_section.pyのcreate_entity関数
 ```
 入力文字数制限が250文字までだったので、長いデータは半角スペースを削除するなどして文字数を減らして登録できるものは登録しました。
 
-例) [review_section_master_kakenhi.xml](https://bitbucket.org/niijp/grants_masterxml_kaken/src/master/review_section_master_kakenhi.xml)
+例) 変更前 [review_section_master_kakenhi.xml](https://bitbucket.org/niijp/grants_masterxml_kaken/src/master/review_section_master_kakenhi.xml)
+
+
 ```
-2190行目      <name lang="en">2190:Physical chemistry, functional solid state chemistry, organic chemistry, inorganic/coordination chemistry, analytical chemistry, polymers, 
+2910行目      <name lang="en">2190:Physical chemistry, functional solid state chemistry, organic chemistry, inorganic/coordination chemistry, analytical chemistry, polymers, 
 organic materials, inorganic materials chemistry, energy-related chemistry, biomolecular chemistry and related fields</name>
+```
+
+変更後
+
+```
+2910行目      <name lang="en">2190:Physical chemistry,functional solid state chemistry,organic chemistry,inorganic/coordination chemistry,analytical chemistry,polymers,organic/inorganic materials chemistry,energy-related chemistry,biomolecular chemistry and related fields</name>
 ```
 
 一方、[doid.json](https://github.com/satoshi0409/wb-utils/blob/main/Project2/doid.json)
