@@ -37,7 +37,7 @@ Project2では
 
 ここではより容易なProject1/Dockerfileからsingularityコンテナを作成してスパコン上から実行する方法を説明します。
 ```
-[local server]$ git clone https://github.com/satoshi0409/wb-utils/
+[local server]$ git clone https://(ユーザー名):(パーソナルアクセストークン)@github.com/ddbj/wb-utils.git
 [local server]$ cd Project1/
 [local server]$ unzip inputs.zip  # githubが25MBまでしかuploadできないためにxml入力をzipにしてあります。
 [local server]$ mv inputs/*.xml  ./
@@ -94,7 +94,7 @@ script_wdi_xml_review_section.pyのcreate_entity関数
 
 ここではより容易なNIG＿Project2/Dockerfileからsingularityコンテナを作成してスパコン上から実行する方法を説明します。
 ```
-[local server]$ git clone https://github.com/satoshi0409/wb-utils/
+[local server]$ git clone https://(ユーザー名):(パーソナルアクセストークン)@github.com/ddbj/wb-utils.git
 [local server]$ cd Project2/
 [local server]$ docker build -t project2 .
 [local server]$ sudo singularity build project2.sif docker-daemon://project2:latest
