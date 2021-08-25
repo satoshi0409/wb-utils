@@ -60,11 +60,11 @@ create_entity.py
 
 (1-1) institution_master_kakenhi.xml(研究分野情報)
 ```
-[super computer]$ singularity exec proejct1.sif script_wdi_xml_review_section.py
+[super computer]$ singularity exec project1.sif /usr/local/bin/python3.9 /usr/local/bin/script_wdi_xml_review_section.py
 ```
 (1-2) review_section_master_kakenhi.xml(研究分野情報)
 ```
-[super computer]$ singularity exec proejct1.sif script_wdi_xml_institution.py
+[super computer]$ singularity exec project1.sif /usr/local/bin/python3.9 /usr/local/bin/script_wdi_xml_institution.py
 ```
 ## Project2 - DOID json
 入力用の元データである doid.owl は https://bioportal.bioontology.org/ontologies/DOID
