@@ -46,7 +46,8 @@ bin_wikibase_1_baf49da91847          /bin/bash /entrypoint.sh               	Up 
 # (b) 手動でWikibase上に項目を設定
 登録スクリプト実行前に[Wikibaseに手動で項目とプロパティを追加する方法.pdf](https://github.com/satoshi0409/wb-utils/blob/main/Wikibase%E3%81%AB%E6%89%8B%E5%8B%95%E3%81%A7%E9%A0%85%E7%9B%AE%E3%81%A8%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95.pdf)
 
-にある手順の5ページ目「Wikibaseの main page　https://wb.ddbj.nig.ac.jp/wiki/Main_Page　に行きログインする」
+にある手順の5ページ目「Wikibaseの main page　https://wb.ddbj.nig.ac.jp/wiki/Main_Page
+に行きログインする」
 
 以降を行い、手動で項目(Q)の新規作成とプロパティ(P)の新規作成を行います。
 
