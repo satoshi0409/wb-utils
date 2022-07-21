@@ -1,11 +1,13 @@
 # wb-utils
 このページでは遺伝研スパコン上に構築したwikibaseへのデータ登録方法について説明します。
+
 以下の手順で作成します。
+
 (1) wikibaseのインストール
+
 (2) 手動でWikibase上に項目を設定
+
 (3) データ投入用スクリプトをsingularityコンテナ内で実行
-
-
 
 (1) wikibaseのインストール
 https://github.com/satoshi0409/wb-utils/blob/main/Install%20wikibase%20in%20docker%20container%20-%20CentOS7_08012021.docx
