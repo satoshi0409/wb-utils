@@ -14,22 +14,22 @@ dockerとdocker-composeは既にスパコンにインストールされている
 
 wikibase構築用のdocker-composeファイルをダウンロードする。
 ```
-$ sudo wget https://raw.githubusercontent.com/wmde/wikibase-docker/master/docker-compose.yml
+$ wget https://raw.githubusercontent.com/wmde/wikibase-docker/master/docker-compose.yml
 ```
 docker-compose.ymlをダウンロードしたフォルダーで以下を実行する。
 
 ```
-$ sudo docker-compose pull
+$ docker-compose pull
 ```
 
 コンテナを起動
 ```
-$ sudo docker-compose up -d
+$ docker-compose up -d
 ```
 
 起動したかどうかを確認
 ```
-$ sudo docker-compose ps
+$ docker-compose ps
 Output:
                Name                             		Command              	 State          Ports
 -------------------------------------------------------------------------------------------------------------------------
