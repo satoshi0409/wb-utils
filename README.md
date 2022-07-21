@@ -1,21 +1,55 @@
 # wb-utils
-このページでは遺伝研スパコン上に構築したwikibaseへのデータ登録方法について説明します。
+このページでは遺伝研スパコン(it048)上に構築したwikibaseへのデータ登録方法について説明する。
 
-以下の手順で作成します。
+以下の手順で作成する。
 
-(1) wikibaseのインストール
+(a) wikibaseのインストール
 
-(2) 手動でWikibase上に項目を設定
+(b) 手動でWikibase上に項目を設定
 
-(3) データ投入用スクリプトをsingularityコンテナ内で実行
+(c) データ投入用スクリプトをsingularityコンテナ内で実行
 
-(1) wikibaseのインストール
-https://github.com/satoshi0409/wb-utils/blob/main/Install%20wikibase%20in%20docker%20container%20-%20CentOS7_08012021.docx
-の手順に従って構築する。
-dockerとdocker-composeのインストールはスパコン上では済んでいるので2.3.以降を実行する。
+# (a) wikibaseのインストール
+dockerとdocker-composeは既にスパコンにインストールされているので、インストール手順は割愛する。
 
-　(2) 手動でWikibase上に項目を設定
-と(3) データ投入用スクリプトをsingularityコンテナ内で実行
+wikibase構築用のdocker-composeファイルをダウンロードする。
+```
+$ sudo wget https://raw.githubusercontent.com/wmde/wikibase-docker/master/docker-compose.yml
+```
+docker-compose.ymlをダウンロードしたフォルダーで以下を実行する。
+
+```
+$ sudo docker-compose pull
+```
+
+コンテナを起動
+```
+$ sudo docker-compose up -d
+```
+
+起動したかどうかを確認
+```
+$ sudo docker-compose ps
+Output:
+               Name                             		Command              	 State          Ports
+-------------------------------------------------------------------------------------------------------------------------
+bin_elasticsearch_1_153d06232b02     /usr/local/bin/docker-entr ...     	Up      9200/tcp, 9300/tcp
+bin_mysql_1_98bd69a2f5c8             docker-entrypoint.sh mysqld        	Up      3306/tcp
+bin_quickstatements_1_e891769db85a   /bin/bash /entrypoint.sh        	Up      0.0.0.0:9191->80/tcp
+bin_wdqs-frontend_1_bfb375001f18     /entrypoint.sh nginx -g da ...   	Up      0.0.0.0:8282->80/tcp
+bin_wdqs-proxy_1_80cbe1d38f48        /bin/sh -c "/entrypoint.sh"       	Up      0.0.0.0:8989->80/tcp
+bin_wdqs-updater_1_f26c47c6ce0f      /entrypoint.sh /runUpdate.sh   	Up
+bin_wdqs_1_e573d9c29123              /entrypoint.sh /runBlazegr ...   	Up      9999/tcp
+bin_wikibase_1_baf49da91847          /bin/bash /entrypoint.sh               	Up      0.0.0.0:8181->80/tcp
+```
+
+# (b) 手動でWikibase上に項目を設定
+登録スクリプト実行前に[Wikibaseに手動で項目とプロパティを追加する方法.pdf](https://github.com/satoshi0409/wb-utils/blob/main/Wikibase%E3%81%AB%E6%89%8B%E5%8B%95%E3%81%A7%E9%A0%85%E7%9B%AE%E3%81%A8%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95.pdf)
+
+にある手順に従い手動で項目(Q)の新規作成とプロパティ(P)の新規作成を行います。
+
+
+# (c) データ投入用スクリプトをsingularityコンテナ内で実行
 
 Project1では
 - (1-1) 組織情報(institution_master_kakenhi.xml)　Q489からQ3248の2760個
@@ -36,10 +70,6 @@ Project2では
 入力用の元データである組織情報(institution_master_kakenhi.xml)と研究分野情報(review_section_master_kakenhi.xml)
 
 は https://bitbucket.org/niijp/grants_masterxml_kaken/src/master/ から入手しましたが、下段の注意点１にあるようにデータに一部問題があったので修正しています。
-
-登録スクリプト実行前に[Wikibaseに手動で項目とプロパティを追加する方法.pdf](https://github.com/satoshi0409/wb-utils/blob/main/Wikibase%E3%81%AB%E6%89%8B%E5%8B%95%E3%81%A7%E9%A0%85%E7%9B%AE%E3%81%A8%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95.pdf)
-
-にある手順に従い手動で項目(Q)の新規作成とプロパティ(P)の新規作成を行います。
 
 <img width="591" alt="項目とプロパティの新規作成後" src="https://user-images.githubusercontent.com/49433886/130773135-aa56d03f-bcc2-46e1-912d-2ba80539f55e.PNG">
 
