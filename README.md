@@ -53,6 +53,28 @@ bin_wikibase_1_baf49da91847          /bin/bash /entrypoint.sh               	Up 
 
 
 # (c) データ投入用スクリプトをsingularityコンテナ内で実行
+以下の手順で実行できる。
+
+(1-1) institution_master_kakenhi.xml(研究分野情報)
+```
+[super computer]$ cd /data/wikibase/project1/
+[super computer]$ singularity exec project1.sif /usr/local/bin/python3.9 /usr/local/bin/script_wdi_xml_review_section.py
+```
+(1-2) review_section_master_kakenhi.xml(研究分野情報)
+```
+[super computer]$ cd /data/wikibase/project1/
+[super computer]$ singularity exec project1.sif /usr/local/bin/python3.9 /usr/local/bin/script_wdi_xml_institution.py
+```
+
+(2) Human disease ontology(doid.json)
+```
+[super computer]$ cd/data/wikibase/project2/
+[super computer]$ singularity exec project2.sif DOID_obographs_bot.py /home/test/doid.json
+```
+
+
+
+# 以下は(c)の詳細な注意点になりますので、ゼロから作成する際はご確認ください。
 
 Project1では
 - (1-1) 組織情報(institution_master_kakenhi.xml)　Q489からQ3248の2760個
